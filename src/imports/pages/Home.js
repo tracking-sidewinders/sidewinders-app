@@ -1,9 +1,24 @@
 import React from 'react';
+import {
+  withAuthenticator,
+  Button,
+  Heading,
+  Image,
+  View,
+  Card,
+} from "@aws-amplify/ui-react";
+import logo from '../../logo.svg';
 
-function Home() {
+function Home({ signOut }) {
     return (
-        <h1>this is the homepage</h1>
+        <View className="App">
+            <Card>
+                <Image src={logo} className="App-logo" alt="logo" />
+                <Heading level={1}>We now have Auth!</Heading>
+            </Card>
+            <Button onClick={signOut}>Sign Out</Button>
+        </View>
     );
 }
 
-export default Home;
+export default withAuthenticator(Home);
