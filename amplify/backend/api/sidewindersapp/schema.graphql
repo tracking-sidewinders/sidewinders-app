@@ -1,0 +1,47 @@
+enum StatusEnum {
+  DONE
+  MISSING
+  OVERDUE
+}
+
+type TrainingCompletionStatus @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Training: Trainings @hasOne
+  Servicemen: Servicemen @hasOne
+  DateCompleted: AWSDate
+  DateDue: AWSDate
+  Status: StatusEnum
+}
+
+type Trainings @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  TrainingName: String
+  TrainingTypes: TrainingTypes @hasOne
+}
+
+type TrainingTypes @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  TrainingTypeName: String
+}
+
+enum RankEnum {
+  AB
+  AMN
+  A1C
+  SRA
+  SSGT
+  TSGT
+  MSGT
+  SMSGT
+  CMSGT
+  CCM
+}
+
+type Servicemen @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Firstname: String
+  Lastname: String
+  Rank: RankEnum
+  Position: String
+  AFSC: Int
+}
