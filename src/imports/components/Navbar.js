@@ -3,12 +3,15 @@ import { BrowserRouter, Route, Link } from "react-router-dom";
 
 function Navbar() {
     return (
-      <nav>
+      <nav style={{backgroundColor: "#A2D2FF"}}>
         <ul>
-          <li>
+          <li style={{display: "inline-block"}}>
             <Link to="/">Home</Link>
           </li>
-          <li>
+          <li style={{display: "inline-block"}}>
+            <p>|</p>
+          </li>
+          <li style={{display: "inline-block"}}>
             <Link to="/profilelist">ProfileList</Link>
           </li>
        </ul>
