@@ -16,6 +16,7 @@ import config from './aws-exports';
 import Layout from "./imports/layout/Layout";
 import Home from "./imports/pages/Home";
 import ProfileList from "./imports/pages/ProfileList";
+import IndividualProfile from "./imports/pages/IndividualProfile";
 
 Amplify.configure(config);
 
@@ -38,6 +39,7 @@ function App({ signOut }) {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="/profilelist" element={<ProfileList />} />
+          <Route path="/individualprofile" element={<IndividualProfile />} />
         </Route>
       </Routes>
     </BrowserRouter>

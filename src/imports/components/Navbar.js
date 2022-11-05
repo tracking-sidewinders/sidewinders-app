@@ -14,6 +14,12 @@ function Navbar() {
           <li style={{display: "inline-block"}}>
             <Link to="/profilelist">ProfileList</Link>
           </li>
+          <li style={{display: "inline-block"}}>
+            <p>|</p>
+          </li>
+          <li style={{display: "inline-block"}}>
+            <Link to="/individualprofile">IndividualProfile</Link>
+          </li>
        </ul>
       </nav>
     );
