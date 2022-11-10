@@ -266,11 +266,6 @@ export const listServicemen = /* GraphQL */ `
         Rank
         Position
         AFSC
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
       }
       nextToken
       startedAt

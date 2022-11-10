@@ -39,7 +39,7 @@ function App({ signOut }) {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="/profilelist" element={<ProfileList />} />
-          <Route path="/individualprofile" element={<IndividualProfile />} />
+          <Route path="/individualprofile/:_id" element={<IndividualProfile />} />
         </Route>
       </Routes>
     </BrowserRouter>
