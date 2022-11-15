@@ -39,9 +39,9 @@ enum RankEnum {
 
 type Servicemen @model @auth(rules: [{allow: public}]) {
   id: ID!
-  Firstname: String
-  Lastname: String
-  Rank: RankEnum
-  Position: String
-  AFSC: Int
+  Firstname: String!
+  Lastname: String!
+  Rank: RankEnum!
+  Position: String!
+  AFSC: Int!
 }
