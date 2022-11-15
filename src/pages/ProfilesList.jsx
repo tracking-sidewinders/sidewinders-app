@@ -9,7 +9,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function ProfilesList() {
-    const [Serviceman, setServiceman] = useState([]);
+    const [Servicemen, setServiceman] = useState([]);
 
     useEffect(() => {
         fetchServiceman();
@@ -56,7 +56,7 @@ function ProfilesList() {
           ariaLabel=""
           >Generate Reports</Button>
           </Card>
-      <div className="airmanlist">
+      <div className="servicemanlist">
             <Table
             caption=""
             highlightOnHover={false}>
@@ -72,7 +72,7 @@ function ProfilesList() {
                 <TableCell as="th">Action</TableCell>
               </TableRow>
             </TableHead>
-            { Serviceman.map(Serviceman => {
+            { Servicemen.map(Servicemen => {
           return (
             <TableBody>
               <TableRow>
@@ -85,12 +85,12 @@ function ProfilesList() {
                   />
                   </div>
                 </TableCell>
-                <TableCell>{Serviceman.rank}</TableCell>
-                <TableCell>{Serviceman.lastName}</TableCell>
-                <TableCell>{Serviceman.firstName}</TableCell>
-                <TableCell>{Serviceman.position}</TableCell>
-                <TableCell>{Serviceman.afsc}</TableCell>
-                <TableCell>{Serviceman.Status}</TableCell>
+                <TableCell>{Servicemen.Rank}</TableCell>
+                <TableCell>{Servicemen.Lastname}</TableCell>
+                <TableCell>{Servicemen.Firstname}</TableCell>
+                <TableCell>{Servicemen.Position}</TableCell>
+                <TableCell>{Servicemen.AFSC}</TableCell>
+                <TableCell>{Servicemen.Status}</TableCell>
                 <TableCell>
                 <Button
                   variation="link"
