@@ -2,13 +2,7 @@ import { ModelInit, MutableModel } from "@aws-amplify/datastore";
 // @ts-ignore
 import { LazyLoading, LazyLoadingDisabled, AsyncItem } from "@aws-amplify/datastore";
 
-export enum StatusEnum {
-  DONE = "DONE",
-  MISSING = "MISSING",
-  OVERDUE = "OVERDUE"
-}
-
-export enum RankEnum {
+export enum Rank {
   AB = "AB",
   AMN = "AMN",
   A1_C = "A1C",
@@ -18,7 +12,23 @@ export enum RankEnum {
   MSGT = "MSGT",
   SMSGT = "SMSGT",
   CMSGT = "CMSGT",
-  CCM = "CCM"
+  CCM = "CCM",
+  CMSAF = "CMSAF",
+  SNDLT = "SNDLT",
+  FSTLT = "FSTLT",
+  MAJ = "MAJ",
+  LTCO = "LTCO",
+  COL = "COL",
+  BRIG = "BRIG",
+  MAJG = "MAJG",
+  LTGE = "LTGE",
+  GEN = "GEN",
+  GAF = "GAF"
+}
+
+export enum TrainingStatusEnum {
+  DONE = "DONE",
+  MISSING = "MISSING"
 }
 
 type TrainingCompletionStatusMetaData = {
@@ -43,7 +53,7 @@ type EagerTrainingCompletionStatus = {
   readonly Servicemen?: Servicemen | null;
   readonly DateCompleted?: string | null;
   readonly DateDue?: string | null;
-  readonly Status?: StatusEnum | keyof typeof StatusEnum | null;
+  readonly Status?: TrainingStatusEnum | keyof typeof TrainingStatusEnum | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
   readonly trainingCompletionStatusTrainingId?: string | null;
@@ -56,7 +66,7 @@ type LazyTrainingCompletionStatus = {
   readonly Servicemen: AsyncItem<Servicemen | undefined>;
   readonly DateCompleted?: string | null;
   readonly DateDue?: string | null;
-  readonly Status?: StatusEnum | keyof typeof StatusEnum | null;
+  readonly Status?: TrainingStatusEnum | keyof typeof TrainingStatusEnum | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
   readonly trainingCompletionStatusTrainingId?: string | null;
@@ -117,7 +127,7 @@ type EagerServicemen = {
   readonly id: string;
   readonly Firstname?: string | null;
   readonly Lastname?: string | null;
-  readonly Rank?: RankEnum | keyof typeof RankEnum | null;
+  readonly Rank?: Rank | keyof typeof Rank | null;
   readonly Position?: string | null;
   readonly AFSC?: number | null;
   readonly createdAt?: string | null;
@@ -128,7 +138,7 @@ type LazyServicemen = {
   readonly id: string;
   readonly Firstname?: string | null;
   readonly Lastname?: string | null;
-  readonly Rank?: RankEnum | keyof typeof RankEnum | null;
+  readonly Rank?: Rank | keyof typeof Rank | null;
   readonly Position?: string | null;
   readonly AFSC?: number | null;
   readonly createdAt?: string | null;

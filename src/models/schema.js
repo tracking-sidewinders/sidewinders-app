@@ -56,7 +56,7 @@ export const schema = {
                     "name": "Status",
                     "isArray": false,
                     "type": {
-                        "enum": "StatusEnum"
+                        "enum": "TrainingStatusEnum"
                     },
                     "isRequired": false,
                     "attributes": []
@@ -284,7 +284,7 @@ export const schema = {
                     "name": "Rank",
                     "isArray": false,
                     "type": {
-                        "enum": "RankEnum"
+                        "enum": "Rank"
                     },
                     "isRequired": false,
                     "attributes": []
@@ -347,16 +347,8 @@ export const schema = {
         }
     },
     "enums": {
-        "StatusEnum": {
-            "name": "StatusEnum",
-            "values": [
-                "DONE",
-                "MISSING",
-                "OVERDUE"
-            ]
-        },
-        "RankEnum": {
-            "name": "RankEnum",
+        "Rank": {
+            "name": "Rank",
             "values": [
                 "AB",
                 "AMN",
@@ -367,11 +359,29 @@ export const schema = {
                 "MSGT",
                 "SMSGT",
                 "CMSGT",
-                "CCM"
+                "CCM",
+                "CMSAF",
+                "SNDLT",
+                "FSTLT",
+                "MAJ",
+                "LTCO",
+                "COL",
+                "BRIG",
+                "MAJG",
+                "LTGE",
+                "GEN",
+                "GAF"
+            ]
+        },
+        "TrainingStatusEnum": {
+            "name": "TrainingStatusEnum",
+            "values": [
+                "DONE",
+                "MISSING"
             ]
         }
     },
     "nonModels": {},
-    "codegenVersion": "3.3.1",
-    "version": "0a254516640789ffe7d184bda6fe45c9"
+    "codegenVersion": "3.2.0",
+    "version": "d605202acf7602d8e9b078d88abeff8e"
 };

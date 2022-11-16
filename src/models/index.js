@@ -2,13 +2,7 @@
 import { initSchema } from '@aws-amplify/datastore';
 import { schema } from './schema';
 
-const StatusEnum = {
-  "DONE": "DONE",
-  "MISSING": "MISSING",
-  "OVERDUE": "OVERDUE"
-};
-
-const RankEnum = {
+const Rank = {
   "AB": "AB",
   "AMN": "AMN",
   "A1_C": "A1C",
@@ -18,7 +12,23 @@ const RankEnum = {
   "MSGT": "MSGT",
   "SMSGT": "SMSGT",
   "CMSGT": "CMSGT",
-  "CCM": "CCM"
+  "CCM": "CCM",
+  "CMSAF": "CMSAF",
+  "SNDLT": "SNDLT",
+  "FSTLT": "FSTLT",
+  "MAJ": "MAJ",
+  "LTCO": "LTCO",
+  "COL": "COL",
+  "BRIG": "BRIG",
+  "MAJG": "MAJG",
+  "LTGE": "LTGE",
+  "GEN": "GEN",
+  "GAF": "GAF"
+};
+
+const TrainingStatusEnum = {
+  "DONE": "DONE",
+  "MISSING": "MISSING"
 };
 
 const { TrainingCompletionStatus, Trainings, TrainingTypes, Servicemen } = initSchema(schema);
@@ -28,6 +38,6 @@ export {
   Trainings,
   TrainingTypes,
   Servicemen,
-  StatusEnum,
-  RankEnum
+  Rank,
+  TrainingStatusEnum
 };
