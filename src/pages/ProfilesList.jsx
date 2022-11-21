@@ -25,11 +25,18 @@ function ProfilesList() {
             console.log('error on fetching servicemen', error);
         }
     };
-  
+    
+    //TODO: make this go to an airman's page
+    // grab airman's id
+    // use airman's id as variable
     const navigate = useNavigate();
-    const navigateToProfile = () => {
-      navigate('/profile');
+    const navigateToProfile = (ServicememberID) => {
+      //TODO use airman's variable id here
+      navigate(`/profile/${ServicememberID}`);
     };
+    Servicemen.map(Servicemen => {
+      console.log(Servicemen.id);
+    })
     
   return (
     <View className="App">
@@ -96,7 +103,7 @@ function ProfilesList() {
                   variation="link"
                   size="small"
                   loadingText=""
-                  onClick={navigateToProfile}
+                  onClick={() => navigateToProfile(Servicemen.id)}
                   ariaLabel=""
                 >View/Edit</Button>
                 </TableCell>

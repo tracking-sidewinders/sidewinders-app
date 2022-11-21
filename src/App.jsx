@@ -45,6 +45,7 @@ function App() {
         <Route path="/profiles" element={<ProfilesList/>}/>
         <Route path="/reports" element={<Reports/>}/>
         <Route path="/profile" element={<Profile/>}/>
+        <Route path="/profile/:id" element={<Profile/>}/>
       </Routes>
     </div>
     </div>
