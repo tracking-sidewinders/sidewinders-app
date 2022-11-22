@@ -36,7 +36,6 @@ function App() {
             <Nav.Link as={Link} to="/home">Home</Nav.Link>
             <Nav.Link as={Link} to="/profiles">Profiles</Nav.Link>
             <Nav.Link as={Link} to="/reports">Reports</Nav.Link>
-            <Nav.Link as={Link} to="/profile">Airman Profile (Temp)</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
