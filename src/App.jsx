@@ -12,6 +12,7 @@ import Home from './pages/Home';
 import Profile from './pages/Profile'; //TODO ROUTE? 
 import ProfilesList from './pages/ProfilesList.jsx';
 import Reports from './pages/Reports';
+import UnsupportedRoute from "./pages/UnsupportedRoute";
 
 Amplify.configure(config);
 
@@ -35,7 +36,6 @@ function App() {
             <Nav.Link as={Link} to="/home">Home</Nav.Link>
             <Nav.Link as={Link} to="/profiles">Profiles</Nav.Link>
             <Nav.Link as={Link} to="/reports">Reports</Nav.Link>
-            <Nav.Link as={Link} to="/profile">Airman Profile (Temp)</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
@@ -44,7 +44,8 @@ function App() {
         <Route path="/home" element={<Home/>}/>
         <Route path="/profiles" element={<ProfilesList/>}/>
         <Route path="/reports" element={<Reports/>}/>
-        <Route path="/profile" element={<Profile/>}/>
+        <Route path="/profile/:id" element={<Profile/>}/>
+        <Route path="/*" element={<UnsupportedRoute/>}/>
       </Routes>
     </div>
     </div>

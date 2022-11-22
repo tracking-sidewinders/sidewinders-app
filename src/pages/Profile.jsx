@@ -1,67 +1,75 @@
 import React from 'react';
 import '../App.css';
 import { Card, Heading, View, Button, TableHead, TableCell, Table, TableRow, TableBody } from '@aws-amplify/ui-react';
-import { listServicemen } from '../graphql/queries'
+import { listServicemen,getServicemen } from '../graphql/queries'
 import { API, graphqlOperation } from "aws-amplify";
 import { useEffect, useState } from "react";
+import { useParams } from 'react-router-dom';
+
 function Profile() {
 
-  const [Servicemen, setAirman] = useState([]);
+  // grab servicemember id from url
+  const ServicememberID = useParams().id;
+
+  const [Servicemember, setServicemember] = useState(null);
 
   useEffect(() => {
-      fetchServicemen();
+      fetchServicememberByID();
   },[]);
 
-  const fetchServicemen = async () => {
+  const fetchServicememberByID = async () => {
       try {
-          const servicemenData = await API.graphql(graphqlOperation(listServicemen));
-          const servicemen = servicemenData.data.listServicemen.items;
-          console.log('serviceman', servicemen);
-          setAirman(servicemen);
+          const servicemenData = await API.graphql(graphqlOperation(getServicemen, {id: ServicememberID}));
+          const servicemember = servicemenData.data.getServicemen;
+          setServicemember(servicemember);
       } catch (error) {
           console.log('error on fetching airman', error);
       }
-  };
+  }
+
+    console.log(Servicemember);
     return (
-      <View>
-        <div className="card">
-          { Servicemen.map(Servicemen => {
-            return (
+      <div>
+        {
+          (Servicemember == null) ?
+          <View>
+            <Card>
+              <Heading level={2}>Loading</Heading>
+            </Card>
+          </View>
+          :
+          <View>
+            <div className="card">
               <Card>
-            <Heading level={3}>{Servicemen.rank}</Heading> 
-            <Heading level={3}>{Servicemen.lastName}</Heading>  
-            <Heading level={3}>{Servicemen.firstName}</Heading>  
-            <Heading level={5}>{Servicemen.position}</Heading>  
-            <Heading level={5}>{Servicemen.afsc}</Heading>  
-          </Card>
-            )
-          })}
-          </div> 
-        <div className="cardbuttons">
-          <Card>
-            <Button
+                <Heading level={2}>{`${Servicemember.Rank} ${Servicemember.Firstname} ${Servicemember.Lastname}`}</Heading> 
+                <Heading level={4}>{`AFSC: ${Servicemember.AFSC}`}</Heading> 
+              </Card>
+            </div> 
+            <div className="cardbuttons">
+              <Card>
+                <Button
                     variation="link"
                     size="small"
                     loadingText=""
                     onClick={() => alert('this button will send email to associated email of airman')}
                     ariaLabel=""
                   >Notify</Button>
-            <Button
+                <Button
                   variation="link"
                   size="small"
                   loadingText=""
                   onClick={() => alert('utm will be allowed to update the completion of a training')}
                   ariaLabel=""
-                >Update</Button>
-            <Button
+                  >Update</Button>
+                <Button
                   variation="link"
                   size="small"
                   loadingText=""
                   onClick={() => alert('this will lead to the airmans page of certificates to upload and view')}
                   ariaLabel=""
-                >Certificates</Button>
-          </Card>
-        </div>
+                  >Certificates</Button>
+              </Card>
+            </div>
         <Table
             caption=""
             highlightOnHover={false}>
@@ -85,7 +93,12 @@ function Profile() {
             </TableBody>
           </Table>
       </View>
+        }
+      </div>
     );
 }
   
 export default Profile;
+
+        
+      
