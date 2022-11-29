@@ -1,20 +1,36 @@
 import React from 'react';
 import '../App.css';
-import { Grid, View } from '@aws-amplify/ui-react';
+import { Grid, View, Heading, Card } from '@aws-amplify/ui-react';
 import TrainingGraph from '../components/TrainingGraph';
+import PieChart from '../components/PieChart';
 
-//TODO add progress bars to the dashboard
 // fetch training completion data
 // render it to website
 function Home() {
     return ( 
       <Grid
-        templateColumns="1fr 1fr"
+        stye={{ margin: '10px'}}
+        columnGap="0.5rem"
+        rowGap="0.5rem"
+        templateColumns="2fr 1fr"
+        templateRows="1fr"
       >
         <View>
-          <TrainingGraph/>
+          <Card variation="elevated">
+            <Heading level={4} >
+              OVERALL TRAINING STATUS
+            </Heading>
+            <TrainingGraph/>
+          </Card>
         </View>
-        <h1> Hi I am DASHBOARD/HOME </h1>
+        <View>
+          <Card variation="elevated">
+            <Heading level={4} >
+              TOP NON-COMPLIANT TRAINING
+            </Heading>
+            <PieChart/>
+          </Card>
+        </View>
       </Grid>
     );
 }

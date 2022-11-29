@@ -20,6 +20,9 @@ ChartJS.register(
   Legend
 );
 
+//TODO
+// fetch training completion data
+// render it to website
 function TrainingGraph() {
     // labels on y axis
     const labels = ['Ancilary', 'ITRM', 'MRDSS', 'Job-Specific'];
@@ -28,8 +31,8 @@ function TrainingGraph() {
       labels: labels,
       datasets: [{
         axis: 'y',
-        label: 'Missing (percent)',
-        data: [30, 40, 50, 70],
+        label: 'Missing %',
+        data: [10, 40, 5, 20],
         backgroundColor: [
           'rgba(255, 99, 132, 1)',
           'rgba(255, 99, 132, 1)',
@@ -40,8 +43,8 @@ function TrainingGraph() {
       },
       {
         axis: 'y',
-        label: 'Validating (percent)',
-        data: [10, 10, 10, 10],
+        label: 'Validating %',
+        data: [30, 20, 25, 0],
         fill: false,
         backgroundColor: [
           'rgba(255, 205, 86, 1)',
@@ -53,8 +56,8 @@ function TrainingGraph() {
       },
       {
         axis: 'y',
-        label: 'Complete (percent)',
-        data: [60, 50, 40, 20],
+        label: 'Complete %',
+        data: [60, 40, 70, 80],
         fill: false,
         backgroundColor: [
           'rgba(112, 224, 0, 1)',
